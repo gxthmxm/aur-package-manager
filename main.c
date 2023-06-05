@@ -18,38 +18,18 @@ void install_package(const char *package)
 {
     system("clear");
     print_banner();
-
     char command[256];
-    snprintf(command, sizeof(command), "git clone https://aur.archlinux.org/%s.git /tmp/%s", package, package);
-    system(command);
-
-    char packagePath[256];
-    snprintf(packagePath, sizeof(packagePath), "/tmp/%s", package);
-    chdir(packagePath);
-
-    char response;
-    printf("\n\e[0;32m==>\x1b[0m Do you want to check the contents of PKGBUILD? [Y/n]: ");
-    scanf(" %c", &response);
-
-    if (response == 'Y' || response == 'y' || response == ' ')
-    {
-        system("less PKGBUILD");
-    }
-    else if (response == 'N' || response == 'n')
-    {
-        // It no do anything hehe
-    }
-    else
-    {
-        printf("Invalid input!\n");
-    }
-
-    system("makepkg -si");
-
     char *home = getenv("HOME");
+    sprintf(command, "mkdir -p %s/aurinstaller/tmp", home);
+    system(command);
+    sprintf(command, "git clone https://aur.archlinux.org/%s.git %s/aurinstaller/tmp/%s", package, home, package);
+    system(command);
+    char package_dir[256];
+    sprintf(package_dir, "%s/aurinstaller/tmp/%s", home, package);
+    chdir(package_dir);
+    system("makepkg -si");
     chdir(home);
-
-    sprintf(command, "rm -rf /tmp/aurinstaller/tmp/%s", package);
+    sprintf(command, "rm -rf %s/aurinstaller/tmp/%s", home, package);
     system(command);
 }
 
