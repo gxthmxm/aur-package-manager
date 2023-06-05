@@ -49,7 +49,7 @@ void install_package(const char *package)
     char *home = getenv("HOME");
     chdir(home);
 
-    sprintf(command, "rm -rf /tmp/aurinstaller/%s", package);
+    sprintf(command, "rm -rf /tmp/%s", package);
     system(command);
 }
 
