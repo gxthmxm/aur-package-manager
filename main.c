@@ -37,7 +37,7 @@ void install_package(const char *package)
     }
     else if (response == 'N' || response == 'n')
     {
-        // It no do anything hehe
+        // It no do anything hehe :3
     }
     else
     {
