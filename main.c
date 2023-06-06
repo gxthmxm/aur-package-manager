@@ -6,7 +6,7 @@
 #include <git2.h>
 
 
-// Uhh this is a cute banner >w<
+// Uhh, this is a cute banner >w<
 void print_banner()
 {
     printf("\x1b[38;2;91;206;250m    _____                \n");
