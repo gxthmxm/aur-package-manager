@@ -18,7 +18,7 @@ void print_banner()
     printf("\x1b[38;2;245;169;184mMade with ❤️  by Luna & Tori\x1b[0m\n\n");
 }
 
-// Ooh, we're installing a package! Time to get fancy~ OwO
+// Ooo, we're installing a package! Time to get fancy~ OwO
 void install_package(const char *package)
 {
     print_banner();
